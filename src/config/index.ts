@@ -5,6 +5,7 @@ type ServerConfig = {
     PORT: number
     MONGODB_URI: string
     REDIS_URL: string
+    REDIS_COUNTER_KEY: string
 }
 
 function loadEnv() {
@@ -17,5 +18,6 @@ loadEnv();
 export const serverConfig: ServerConfig = {
     PORT: Number(process.env.PORT) || 3001,
     MONGODB_URI: String(process.env.MONGODB_URI) || "mongodb://localhost:27017/short_my_url",
-    REDIS_URL: String(process.env.REDIS_URL) || "redis://localhost:6379"
+    REDIS_URL: String(process.env.REDIS_URL) || "redis://localhost:6379",
+    REDIS_COUNTER_KEY: String(process.env.REDIS_COUNTER_KEY) || "url_shortner_key"
 };
