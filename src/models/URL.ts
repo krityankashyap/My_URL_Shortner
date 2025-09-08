@@ -11,7 +11,7 @@ export interface IUrl extends Document {
 const URLSchema = new Schema<IUrl>({
   OriginalURL: {type: String, required: true},
   ShortURL: {type: String, required: true, unique: true, index: true},
-  clicks: {type: Number, required: true},
+  clicks: {type: Number, default: 0},
   updatedAt: {type: Date, default: Date.now},
   createdAt: {type: Date, default: Date.now}
 })

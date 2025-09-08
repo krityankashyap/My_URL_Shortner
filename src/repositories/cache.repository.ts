@@ -1,5 +1,5 @@
 import { serverConfig } from "../config";
-import { redisClient } from "../config/config";
+import { redisClient } from "../config/redis";
 
 export class cacheRepository {
 
