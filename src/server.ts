@@ -1,6 +1,6 @@
 import express from 'express';
 import { serverConfig } from './config';
-import v1Router from './routers/v1/index.router';
+// import v1Router from './routers/v1/index.router';
 import v2Router from './routers/v2/index.router';
 import { appErrorHandler, genericErrorHandler } from './middlewares/error.middleware';
 import logger from './config/logger.config';
@@ -9,6 +9,7 @@ import { initRedis } from './config/redis';
 import { connectDB } from './config/db';
 import { createExpressMiddleware } from '@trpc/server/adapters/express';
 import { trpcRouter } from './routers/trpc';
+import { redirectUrl } from './controller/url.controller';
 const app = express();
 
 app.use(express.json());
@@ -23,8 +24,10 @@ app.use('/trpc', createExpressMiddleware({
     router: trpcRouter
 }));
 
+app.get('/:shortUrl', redirectUrl)
 
-app.use('/api/v1', v1Router);
+
+// app.use('/api/v1', v1Router);
 app.use('/api/v2', v2Router); 
 
 

@@ -57,7 +57,7 @@ export async function redirectUrl(req: Request, res: Response, next: NextFunctio
         return;
     }
 
- //   await urlService.incrementClicks(shortUrl);
+   await urlService.incrementClicks(shortUrl);
 
     res.redirect(url.originalUrl);
 }
